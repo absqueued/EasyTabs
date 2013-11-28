@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jQuery Tab</title>
+<style type="text/css">
+*{margin:0; padding:0;}
+
+body{
+	background:#e0e0e0;	
+	font:normal 11px/1.5em Arial, Helvetica, sans-serif;
+}
+a{outline:none;}
+
+#tabContaier{
+	background:#f0f0f0;
+	border:1px solid #fff;
+	margin:100px auto;
+	padding:20px;
+	position:relative;
+	width:500px;
+}
+	#tabContaier ul{
+		overflow:hidden;
+		border-right:1px solid #fff;
+		height:35px;
+		position:absolute;
+		z-index:100;
+	}
+	#tabContaier li{
+		float:left;
+		list-style:none;
+	}
+	#tabContaier li a{
+		background:#ddd;
+		border:1px solid #fcfcfc;
+		border-right:0;
+		color:#666;
+		cursor:pointer;
+		display:block;
+		height:35px;
+		line-height:35px;
+		padding:0 30px;
+		text-decoration:none;
+		text-transform:uppercase;
+	}
+	#tabContaier li a:hover{
+		background:#eee;
+	}
+	#tabContaier li a.active{
+		background:#fbfbfb;
+		border:1px solid #fff;
+		border-right:0;
+		color:#333;
+	}
+	.tabDetails{
+		background:#fbfbfb;
+		border:1px solid #fff;
+		margin:34px 0 0;
+	}
+	.tabContents{
+		padding:20px
+	}
+	.tabContents h1{
+		font:normal 24px/1.1em Georgia, "Times New Roman", Times, serif;
+		padding:0 0 10px;
+	}
+	.tabContents p{
+		padding:0 0 10px;
+	}
+</style>
+</head>
+
+<body>
+<div id="tabContaier">
+	<ul>
+    	<li><a class="active" href="#tab1">Div One</a></li>
+    	<li><a href="#tab2">Div Two</a></li>
+    	<li><a href="#tab3">Div Three</a></li>
+    </ul><!-- //Tab buttons -->
+    <div class="tabDetails">
+    	<div id="tab1" class="tabContents">
+        	<h1>Div One</h1>
+            <p>Sed gravida velit ut lorem dictum vitae venenatis dolor faucibus. In vehicula malesuada mi, vel semper sem porta in. Mauris suscipit lorem eget justo congue semper.</p>
+            <p>Donec et purus eget elit tristique consequat. Integer ut orci eu augue tristique viverra nec vitae odio. Nulla sem nibh, posuere quis condimentum vitae, posuere sit amet lectus. Morbi euismod tincidunt mauris ut scelerisque.</p>
+        </div><!-- //tab1 -->
+    	<div id="tab2" class="tabContents">
+        	<h1>Div Two</h1>
+            <p>Sed gravida velit ut lorem dictum vitae venenatis dolor faucibus. In vehicula malesuada mi, vel semper sem porta in. Mauris suscipit lorem eget justo congue semper.</p>
+            <p>Donec et purus eget elit tristique consequat. Integer ut orci eu augue tristique viverra nec vitae odio. Nulla sem nibh, posuere quis condimentum vitae, posuere sit amet lectus. Morbi euismod tincidunt mauris ut scelerisque.</p>
+        </div><!-- //tab2 -->
+    	<div id="tab3" class="tabContents">
+        	<h1>Div Three</h1>
+            <p>Sed gravida velit ut lorem dictum vitae venenatis dolor faucibus. In vehicula malesuada mi, vel semper sem porta in. Mauris suscipit lorem eget justo congue semper.</p>
+            <p>Donec et purus eget elit tristique consequat. Integer ut orci eu augue tristique viverra nec vitae odio. Nulla sem nibh, posuere quis condimentum vitae, posuere sit amet lectus. Morbi euismod tincidunt mauris ut scelerisque.</p>
+        </div><!-- //tab3 -->
+    </div><!-- //tab Details -->
+</div><!-- //Tab Container -->
+<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$(".tabContents").hide(); // Hide all tab conten divs by default
+		$(".tabContents:first").show(); // Show the first div of tab content by default
+		
+		$("#tabContaier ul li a").click(function(){ //Fire the click event
+			
+			var activeTab = $(this).attr("href"); // Catch the click link
+			$("#tabContaier ul li a").removeClass("active"); // Remove pre-highlighted link
+			$(this).addClass("active"); // set clicked link to highlight state
+			$(".tabContents").hide(); // hide currently visible tab content div
+			$(activeTab).fadeIn(); // show the target tab content div by matching clicked link.
+		});
+	});
+</script>	
+</body>
+</html>
