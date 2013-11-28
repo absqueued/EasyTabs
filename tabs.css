@@ -18,6 +18,8 @@ a{outline:none;}
 		height:35px;
 		position:absolute;
 		z-index:100;
+		margin:0;
+		padding:0;
 	}
 	.tabContaier li{
 		float:left;
